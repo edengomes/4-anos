@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nossa Jornada de 4 Anos</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>"
+    />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="game-panel" aria-labelledby="game-title">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Nossa Jornada</p>
+            <h1 id="game-title">4 anos de namoro</h1>
+          </div>
+
+          <div class="progress-card" aria-live="polite">
+            <span id="memory-count">0 / 8</span>
+            <small>memorias</small>
+          </div>
+        </header>
+
+        <div class="canvas-wrap">
+          <canvas
+            id="game-canvas"
+            width="960"
+            height="640"
+            aria-label="Tabuleiro com dado para desbloquear memorias do casal"
+          ></canvas>
+          <div class="hint-pill" id="hint-pill">
+            Jogue o dado e avance pelo tabuleiro
+          </div>
+        </div>
+
+        <section class="dice-panel" aria-label="Painel do dado">
+          <div class="dice-face" id="dice-face" aria-live="polite">♡</div>
+          <div class="dice-copy">
+            <strong id="dice-result">Jogue o dado para começar</strong>
+            <span id="roll-count">Jogada 0 de 3</span>
+            <span id="next-memory">Próxima: Primeira memória</span>
+          </div>
+          <button class="primary-btn roll-btn" id="roll-dice" type="button">
+            Jogar dado
+          </button>
+        </section>
+      </section>
+    </main>
+
+    <dialog class="memory-modal" id="memory-modal">
+      <article class="modal-card">
+        <button
+          class="icon-close"
+          id="close-memory"
+          type="button"
+          aria-label="Fechar lembranca"
+        >
+          ×
+        </button>
+        <div class="photo-frame" id="memory-photo-frame">
+          <img id="memory-photo" alt="" />
+          <div class="photo-fallback" id="photo-fallback">♡</div>
+        </div>
+        <p class="memory-date" id="memory-date"></p>
+        <h2 id="memory-title"></h2>
+        <p id="memory-text"></p>
+        <button class="primary-btn" id="continue-game" type="button">
+          Continuar jornada
+        </button>
+      </article>
+    </dialog>
+
+    <dialog class="final-modal" id="final-modal">
+      <article class="modal-card final-card">
+        <div class="confetti" aria-hidden="true"></div>
+        <p class="eyebrow">Voce encontrou tudo</p>
+        <h2>Feliz 4 anos, meu amororeorororor</h2>
+        <p class="final-counter">São 4 anos ao seu ladooo.</p>
+        <p class="letter">
+          OEOEOEOEOEOE MEU AMOROROR. Minha gatinha, minha princesa, eu te amo de
+          um jeito que nem sei explicar direito. Você é meu carinho favorito,
+          minha saudade mais bonita e a pessoa que eu quero ter por perto em
+          todos os dias bons, ruins, doidos e aleatórios dessa vida. Obrigado
+          por ser você comigo, por me fazer sorrir, por me dar paz e por ser
+          esse amor tão lindo que eu tenho a sorte de chamar de meu. Mesmo
+          com a distância, se mantemos próximos a cada dia. Eu te amo muito, muito, muito, meu
+          amor. BEJSOSOSOSOSO eu te amoaoaoao minha princesa, meu amororororo.
+        </p>
+        <button class="primary-btn" id="restart-game" type="button">
+          Jogar de novo
+        </button>
+      </article>
+    </dialog>
+
+    <script src="game.js"></script>
+  </body>
+</html>
