@@ -6,6 +6,7 @@ const hintPill = document.querySelector("#hint-pill");
 const memoryModal = document.querySelector("#memory-modal");
 const finalModal = document.querySelector("#final-modal");
 const closeMemory = document.querySelector("#close-memory");
+const closeFinal = document.querySelector("#close-final");
 const continueGame = document.querySelector("#continue-game");
 const restartGame = document.querySelector("#restart-game");
 const memoryPhotoFrame = document.querySelector("#memory-photo-frame");
@@ -36,7 +37,7 @@ const memories = [
   {
     title: "O pedido de namoro",
     date: "Terceira memória",
-    text: "Meu amor, esse dia foi muito nosso. Aliança, flores, coração acelerado e eu tentando parecer tranquilo (impossível, tava sua família toda AKAKAKAKAK). Mas o pedido veio e depois uma declaração toda embolada AKAKAKAKAK",
+    text: "Até que veio o pedido de namoro. Aliança, flores, coração acelerado e eu tentando parecer tranquilo (impossível, tava sua família toda AKAKAKAKAK). Mas o pedido veio e depois uma declaração toda embolada AKAKAKAKAK",
     image: "assets/foto-3.png",
   },
   {
@@ -276,6 +277,7 @@ function startMove(advance) {
   state.move = {
     from,
     to,
+    advance,
     targetIndex,
     elapsed: 0,
     duration: 520 + advance * 110,
@@ -286,9 +288,7 @@ function startMove(advance) {
 
 function finishMove() {
   state.currentSpaceIndex = state.move.targetIndex;
-  state.stepsTowardNextMemory += state.currentSpaceIndex % spacesPerMemory === 0
-    ? spacesPerMemory - state.stepsTowardNextMemory
-    : state.currentSpaceIndex % spacesPerMemory;
+  state.stepsTowardNextMemory += state.move.advance;
   state.stepsTowardNextMemory = Math.min(state.stepsTowardNextMemory, spacesPerMemory);
   state.move = null;
   state.isMoving = false;
@@ -625,6 +625,9 @@ function loop(time) {
 
 rollDiceButton.addEventListener("click", rollDice);
 closeMemory.addEventListener("click", closeMemoryModal);
+closeFinal.addEventListener("click", () => {
+  finalModal.close();
+});
 continueGame.addEventListener("click", closeMemoryModal);
 memoryModal.addEventListener("cancel", closeMemoryModal);
 restartGame.addEventListener("click", resetGame);
