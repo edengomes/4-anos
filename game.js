@@ -72,6 +72,8 @@ const memories = [
   },
 ];
 
+const imageCache = new Map();
+
 const world = {
   width: canvas.width,
   height: canvas.height,
@@ -121,6 +123,20 @@ const state = {
 };
 
 let audioContext = null;
+
+preloadMemoryImages();
+
+function preloadMemoryImages() {
+  memories.forEach((memory) => {
+    if (!memory.image) {
+      return;
+    }
+
+    const image = new Image();
+    image.src = memory.image;
+    imageCache.set(memory.image, image);
+  });
+}
 
 function ensureAudioContext() {
   if (!audioContext) {
@@ -357,6 +373,17 @@ function openMemory(memory) {
   };
 
   memoryPhoto.onerror = showMissingPhotoFallback;
+
+  const cachedImage = imageCache.get(memory.image);
+
+  if (cachedImage?.complete && cachedImage.naturalWidth > 0) {
+    memoryPhoto.src = cachedImage.src;
+    photoFallback.style.display = "none";
+    memoryPhoto.style.display = "block";
+    memoryModal.showModal();
+    return;
+  }
+
   memoryPhoto.src = memory.image;
   memoryModal.showModal();
 }
