@@ -43,7 +43,7 @@ const memories = [
   {
     title: "Nossa primeira vez juntos na praia",
     date: "Quarta memória",
-    text: "Nossa primeira praia com o sol, mar e você linda sorrindo. E eu pensando comigo mesmo: né que tá dando tudo certo KKKKKKKKKK..",
+    text: "Nossa primeira vez praia, com o sol, mar e você linda sorrindo. E eu pensando comigo mesmo: né que tá dando tudo certo KKKKKKKKKK..",
     image: "assets/foto-4.png",
   },
   {
