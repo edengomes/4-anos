@@ -25,7 +25,7 @@ const memories = [
   {
     title: "Quando a gente se conheceu no FF",
     date: "Primeira memória",
-    text: "Olha onde a gente foi se conhecer KAKAKAKAKAK no FF. No começo era só partida, conversa aleatória e risada, e do nada minha gatinha virou a pessoa mais especial da minha vida.",
+    text: "Olha onde a gente foi se conhecer KAKAKAKAKAK no FF. No começo era só partida, conversa aleatória e risada, e do nada você virou a pessoa mais especial da minha vida.",
     image: "assets/foto-1.png",
   },
   {
